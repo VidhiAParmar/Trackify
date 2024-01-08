@@ -1,16 +1,25 @@
-import React,{useContext} from 'react'
-import Layout from "../Components/Layout";
-import myContext from '../context/myContext';
+// import React,{useContext} from 'react'
+// import Layout from "../Components/Layout";
+// import myContext from '../context/myContext';
 
-function EMI() {
-  const context = useContext(myContext);
-  const {mode} = context;
+// function EMI() {
+//   const context = useContext(myContext);
+//   const {mode} = context;
+//   return (
+//     <Layout>
+//       <div style={{color: mode === 'dark' ? 'white' : ''}}>
+//         emi
+//       </div>
+//   </Layout>
+//   )
+// }
+
+// export default EMI
+import React from 'react'
+
+const EMI = () => {
   return (
-    <Layout>
-      <div style={{color: mode === 'dark' ? 'white' : ''}}>
-        emi
-      </div>
-  </Layout>
+    <div>EMI</div>
   )
 }
 
