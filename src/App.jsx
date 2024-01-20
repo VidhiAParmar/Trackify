@@ -23,14 +23,22 @@
 // }
 
 // export default App
-import React from 'react'
+import React from "react";
+import Navbar from "./Components/Navbar";
+import UserAuthForm from "./Pages/UserAuthForm";
+import { Routes, Route } from "react-router-dom";
 
 const App = () => {
   return (
-    <div>
-      Hello World
-    </div>
-  )
-}
+    <>
+      <Routes>
+        <Route path="/" element={<Navbar />}>
+          <Route path="login" element={<UserAuthForm type="login" />} />
+          <Route path="register" element={<UserAuthForm type="register" />} />
+        </Route>
+      </Routes>
+    </>
+  );
+};
 
-export default App
+export default App;

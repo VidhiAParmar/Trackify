@@ -1,28 +1,14 @@
-// import React from 'react'
-// import Header from "./Header";
-// import Sidebar from "./Sidebar";
-
-
-// function Layout({children}) {
-//   return (
-//     <div>
-//       <Header/>
-//       <div className='flex w-[100%] h-[100vh] border-white m-1'>
-//         <Sidebar/>
-//         {children}
-//       </div>
-
-//     </div>
-//   )
-// }
-
-// export default Layout
-import React from 'react'
+import React from "react";
+import { Link } from "react-router-dom";
+import { Outlet } from "react-router-dom";
 
 const Navbar = () => {
   return (
-    <div>Navbar</div>
-  )
-}
+    <>
+      <nav>Navbar</nav>
+      <Outlet />
+    </>
+  );
+};
 
-export default Navbar
+export default Navbar;
