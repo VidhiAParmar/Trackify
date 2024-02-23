@@ -1,25 +1,15 @@
-// import React, { useContext } from 'react'
-// import Layout from '../Components/Layout'
-// import myContext from "../context/myContext"
+import React from 'react';
+import Layout from './Layout';
 
-// function Home() {
-//     const context = useContext(myContext);
-//     const {mode} = context;
-//   return (
-//     <Layout>
-//        <div style={{color: mode === 'dark' ? 'white' : ''}}>
-//         dashboard
-//       </div>
-//     </Layout>
-//   )
-// }
-
-// export default Home
-import React from 'react'
 
 const Home = () => {
+ 
   return (
-    <div>Home</div>
+    <Layout>
+       <div>
+        dashboard
+      </div>
+    </Layout>
   )
 }
 
