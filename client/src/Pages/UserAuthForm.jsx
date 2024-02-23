@@ -21,6 +21,12 @@ const UserAuthForm = ({ type }) => {
   console.log(type);
 
   useEffect(() => {
+    if (localStorage.getItem("user")) {
+      navigate("/home");
+    }
+  }, [navigate]);
+
+  useEffect(() => {
     setFormData({ email: "", password: "", confirmPassword: "" });
   }, [type]);
   const handleSubmit = (e) => {
@@ -63,6 +69,7 @@ const UserAuthForm = ({ type }) => {
         setTimeout(() => {
           navigate("/home");
           setFormData({ email: "", password: "" });
+          localStorage.setItem("user", JSON.stringify(formData));
         }, 1000);
       } else {
         toast.success("Registered successfully");
