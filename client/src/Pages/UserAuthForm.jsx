@@ -3,6 +3,7 @@ import expense from "../assets/expense.jpg";
 import { Link, useNavigate } from "react-router-dom";
 import { useState } from "react";
 import { Toaster, toast } from "react-hot-toast";
+import InputBox from "../Components/InputBox";
 
 const UserAuthForm = ({ type }) => {
   const [formData, setFormData] = useState({
@@ -20,11 +21,7 @@ const UserAuthForm = ({ type }) => {
   };
   console.log(type);
 
-  useEffect(() => {
-    if (localStorage.getItem("user")) {
-      navigate("/home");
-    }
-  }, [navigate]);
+
 
   useEffect(() => {
     setFormData({ email: "", password: "", confirmPassword: "" });
@@ -82,9 +79,9 @@ const UserAuthForm = ({ type }) => {
   };
 
   return (
-    <div className="h-[calc(100vh-64px)] w-full flex">
+    <div className="h-[calc(100vh-64px)] w-full flex justify-center items-center">
       <img
-        className="hidden md:flex ml-10 w-3/5 xl:w-1/2"
+        className="hidden md:flex ml-10 w-3/5 xl:w-1/2 h-[calc(100vh-64px)]"
         src={expense}
         alt="image"
       />
@@ -97,46 +94,44 @@ const UserAuthForm = ({ type }) => {
           <div className="w-full h-full flex items-center flex-col rounded-lg">
             <div className="inputs flex flex-col gap-3 my-3">
               {type === "register" && (
-                <input
+                <InputBox
                   placeholder="Name"
                   value={formData.fullname}
                   name="fullname"
                   type="text"
-                  className="bg-[#e7e6e9] rounded-lg w-full md:w-56 h-10 pl-3"
-                  onChange={handleChange}
+
+                  handleChange={handleChange}
                 />
               )}
 
-              <input
+              <InputBox
                 placeholder="Email"
                 name="email"
                 value={formData.email}
                 type="email"
-                className="bg-[#e7e6e9] rounded-lg w-full md:w-56 h-10 pl-3"
-                onChange={handleChange}
+                handleChange={handleChange}
               />
 
-              <input
+              <InputBox
                 type="password"
                 placeholder="Password"
                 name="password"
                 value={formData.password}
-                className="bg-[#e7e6e9] rounded-lg w-full md:w-56 h-10 pl-3"
-                onChange={handleChange}
+                handleChange={handleChange}
               />
               {type === "register" && (
-                <input
+                <InputBox
                   type="password"
                   placeholder="Confirm Password"
                   name="confirmPassword"
                   value={formData.confirmPassword}
-                  className="bg-[#e7e6e9] rounded-lg w-full md:w-56 h-10 pl-3"
-                  onChange={handleChange}
+
+                  handleChange={handleChange}
                 />
               )}
             </div>
 
-            <div className="bottom">
+            <div className="bottom mb-2">
               <a className="text-[#9f93da] text-xs hover:underline underline-offset-2 rounded-lg mr-2">
                 forgot password
               </a>
@@ -144,12 +139,14 @@ const UserAuthForm = ({ type }) => {
                 className="text-[#9f93da] text-xs hover:underline underline-offset-2 rounded-lg ml-2"
                 to={type === "login" ? "/register" : "/login"}
               >
-                {type === "login" ? "Register" : "Login"}
+                {
+                type === "login" ? "Register" : "Login"
+              }
               </Link>
             </div>
 
             <button
-              className="h-10 w-full md:w-56 mt-4 text-white font-bold bg-[#7B68DB] rounded-lg align-middle text-center"
+              className ='bg-[#7B68DB] text-white font-bold text-center rounded-lg w-48 md:w-60 h-10 pl-3'
               onClick={handleSubmit}
             >
               {type === "login" ? "Login" : "Register"}
